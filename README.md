@@ -6,12 +6,12 @@ Shakespeare is often said to have a unique style. At the same time, there are nu
 
 ## Links
 ### Authorship question: 
-https://shakespeareoxfordfellowship.org/shakespeare-by-the-numbers-what-stylometrics-can-and-cannot-tell-us/
-https://en.wikipedia.org/wiki/Shakespeare_authorship_question
-https://www.youtube.com/watch?v=K-aAUwAFZlQ&ab_channel=TED-Ed
+- https://shakespeareoxfordfellowship.org/shakespeare-by-the-numbers-what-stylometrics-can-and-cannot-tell-us/
+- https://en.wikipedia.org/wiki/Shakespeare_authorship_question
+- https://www.youtube.com/watch?v=K-aAUwAFZlQ&ab_channel=TED-Ed
 ### Corpora
-https://graphics.cs.wisc.edu/WP/vep/vep-early-modern-drama-collection/
-https://dracor.org/shake
+- Shakespeare: https://dracor.org/shake
+- Contemporaries: https://graphics.cs.wisc.edu/WP/vep/vep-early-modern-drama-collection/
 
 ## GoogleDrive folder
 https://drive.google.com/drive/folders/1I3xy07pOcgxYMepThaHkwK9RFZ1-39Cc?usp=sharing
