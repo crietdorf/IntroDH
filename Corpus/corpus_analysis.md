@@ -1,17 +1,4 @@
-# Corpora analysis
-
-## Dracor
-37 shake plays (printed between 1591 and 1613) <br>
-
-meta data
-- some graph metrics
-- numOfSpeakers (numOfSpeakersFemale, numOfSpeakersMale, - numOfSpeakersUnknown)
-- numOfSegments and numOfActs
-- wordCountText (wordCountSp,wordCountStage)
-- numOfP and numOfL
-- **NO** annotation of play type <br>
-
-download as xml
+# Corpus analysis
 
 ## VEP Early Modern Drama Collection
 554 plays (printed till 1660)
