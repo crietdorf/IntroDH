@@ -14,9 +14,9 @@ Shakespeare is often said to have a unique style. At the same time, there are nu
 - Contemporaries: https://graphics.cs.wisc.edu/WP/vep/vep-early-modern-drama-collection/
 
 ## Methods/Features
-- character level: 3-gram, 4-gram, frequency of characters
-- word level: (function-)word frequency, avg. word length, 2-grams, vocabulary richness [might need text normalization & spelling mistake elimination]
-- syntactic level: avg. sentence length / line length, punctuation mark frequency
+- character level: 3-gram, 4-gram
+- word level: (function-)word frequency, avg. word length, 2-grams, vocabulary richness [might need text normalization, e.g text chunks]
+- syntactic level: (avg. sentence length), line length, ".!?"-frequency
 
 ## GoogleDrive folder
 https://drive.google.com/drive/folders/1I3xy07pOcgxYMepThaHkwK9RFZ1-39Cc?usp=sharing
