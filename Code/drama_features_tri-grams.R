@@ -26,14 +26,14 @@ for (word in drama_words){
   }
 }
 
-# convert list of all tri-grams into dataframe (and remove first entry)
+# convert list into dataframe and count frequencies (remove first entry)
 all_3_grams = as.data.frame((table(all_3_grams[-1])))
 
-# order dataframe by frequency of the tri-grams (decreasing)
+# order dataframe by frequency (decreasing)
 all_3_grams = all_3_grams[order(all_3_grams[,2], decreasing = TRUE), ]
 
 # rename columns
 colnames(all_3_grams) = c("tri-gram", "frequency")
 
-# save dataframe of tri-grams and their frequencies to csv file
+# save dataframe to csv file
 write.csv(all_3_grams, output_path, row.names = FALSE)
