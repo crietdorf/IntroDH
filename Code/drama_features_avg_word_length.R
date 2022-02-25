@@ -1,6 +1,6 @@
 # used libraries
 library(stylo)
-library(stringr)
+library(readr)
 
 # path to drama file and for output file
 path_to_drama <- "Code/small-sample.txt"

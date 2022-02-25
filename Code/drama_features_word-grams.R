@@ -18,7 +18,7 @@ sample_word_bi_gram <- read_file(path_to_drama)
 # string gets split into a vector of consecutive words
 vector_of_words <- txt.to.words(sample_word_bi_gram)
 # makes the ngrams and stores them in object
-word_bi_grams <- make.ngrams(my.vector.of.words, ngram.size = 2)
+word_bi_grams <- make.ngrams(vector_of_words, ngram.size = 2)
 # writes ngrams in a csv
 write.csv(word_bi_grams, file = output_path)
 
