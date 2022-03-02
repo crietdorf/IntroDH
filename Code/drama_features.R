@@ -131,29 +131,12 @@ function_word_frequency = function(drama, function_words){
   write.csv(feature_frequency, paste("feature-results/",drama_name,"-function-words.csv"), row.names = FALSE)
 }
 
-
-word_frequency = function(drama){
-  # drama 
-  words = txt.to.words(drama)
-  # make list of frequencies (uses drama text and funtion words)
-  frequencies = make.frequency.list(words, value = TRUE, head = NULL, relative = TRUE)
-  # convert list into data frame
-  class(frequencies)="vector"
-  word_frequency = data.frame(frequencies)
-  # rename columns
-  colnames(word_frequency) = c("word", "frequency")
-  # make frequency relative
-  word_frequency$frequency = as.numeric(as.character(word_frequency$frequency)) / sum(word_frequency$frequency)
-  # save dataframe to csv file
-  write.csv(word_frequency, paste("feature-results/",drama_name,"-word-frequencies.csv"), row.names = FALSE)
-}
-
 line_length(drama)
 word_length(drama)
 punctuation(drama)
 char_n_grams(drama, 3)
 char_n_grams(drama, 4)
+word_n_grams(drama, 1)
 word_n_grams(drama, 2)
 word_n_grams(drama, 3)
 function_word_frequency(drama, function_words)
-word_frequency(drama)
