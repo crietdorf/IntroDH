@@ -1,16 +1,5 @@
 # used libraries
 library(stylo)
-library(stringr)
-
-# path to drama file and function words
-path_to_drama = "small-sample.txt"
-path_to_function_words = "function-words.txt"
-# get drama name
-drama_name = substr(path_to_drama, 0, 12)
-# read lines of drama file and function words 
-drama = readLines(path_to_drama)
-function_words = readLines(path_to_function_words)
-
 
 line_length = function(drama){
   # create counter for number of words and lines
@@ -28,7 +17,8 @@ line_length = function(drama){
   # rename column
   colnames(line_length) = c("average line length")
   # save dataframe to csv file
-  write.csv(line_length, paste("feature-results/",drama_name,"-line-length.csv"), row.names = FALSE)
+  #write.csv(line_length, paste("feature-results/",drama_name,"-line-length.csv"), row.names = FALSE)
+  write.table( line_length, sep=",",  gsub(" ", "", paste("feature-results/",drama_name,"-line-length.csv")), row.names = FALSE, col.names=FALSE)
 }
 
 word_length = function(drama){
@@ -41,7 +31,8 @@ word_length = function(drama){
   # rename column
   colnames(word_length) = c("average word length")
   # save dataframe to csv file
-  write.csv(word_length, paste("feature-results/",drama_name,"-word-length.csv"), row.names = FALSE)
+  #write.csv(word_length, paste("feature-results/",drama_name,"-word-length.csv"), row.names = FALSE)
+  write.table( word_length, sep=",",  gsub(" ", "", paste("feature-results/",drama_name,"-word-length.csv")), row.names = FALSE, col.names=FALSE)
 }
 
 punctuation = function(drama){
@@ -62,7 +53,9 @@ punctuation = function(drama){
   # make frequency relative
   punctuation$frequency = as.numeric(as.character(punctuation$frequency)) / sum(punctuation$frequency)
   # save dataframe to csv file
-  write.csv(punctuation, paste("feature-results/",drama_name,"-punctuation.csv"), row.names = FALSE)
+  #write.csv(punctuation, paste("feature-results/",drama_name,"-punctuation.csv"), row.names = FALSE)
+  write.table( punctuation, sep=",",  gsub(" ", "", paste("feature-results/",drama_name,"-punctuation.csv")), row.names = FALSE, col.names=FALSE)
+  
 }
 
 char_n_grams = function(drama, n){
@@ -88,7 +81,8 @@ char_n_grams = function(drama, n){
   # make frequency relative
   all_n_grams$frequency = as.numeric(as.character(all_n_grams$frequency)) / sum(all_n_grams$frequency)
   # save dataframe to csv file
-  write.csv(all_n_grams, paste("feature-results/",drama_name,"-character-",n,"-grams.csv"), row.names = FALSE)
+  #write.csv(all_n_grams, paste("feature-results/",drama_name,"-character-",n,"-grams.csv"), row.names = FALSE)
+  write.table( all_n_grams, sep=",",  gsub(" ", "", paste("feature-results/",drama_name,"-character-",n,"-grams.csv")), row.names = FALSE, col.names=FALSE)
 }
 
 word_n_grams = function(drama, n){
@@ -111,7 +105,8 @@ word_n_grams = function(drama, n){
   # make frequency relative
   all_n_grams$frequency = as.numeric(as.character(all_n_grams$frequency)) / sum(all_n_grams$frequency)
   # save dataframe to csv file
-  write.csv(all_n_grams, paste("feature-results/",drama_name,"-word-",n,"-grams.csv"), row.names = FALSE)
+  #write.csv(all_n_grams, paste("feature-results/",drama_name,"-word-",n,"-grams.csv"), row.names = FALSE)
+  write.table( all_n_grams, sep=",",  gsub(" ", "", paste("feature-results/",drama_name,"-word-",n,"-grams.csv")), row.names = FALSE, col.names=FALSE)
 }
 
 function_word_frequency = function(drama, function_words){
@@ -128,15 +123,31 @@ function_word_frequency = function(drama, function_words){
   # make frequency relative
   feature_frequency$frequency = as.numeric(as.character(feature_frequency$frequency)) / sum(feature_frequency$frequency)
   # save dataframe to csv file
-  write.csv(feature_frequency, paste("feature-results/",drama_name,"-function-words.csv"), row.names = FALSE)
+  #write.csv(feature_frequency, paste("feature-results/",drama_name,"-function-words.csv"), row.names = FALSE)
+  write.table( feature_frequency, sep=",",  gsub(" ", "", paste("feature-results/",drama_name,"-function-words.csv")), row.names = FALSE, col.names=FALSE)
 }
 
-line_length(drama)
-word_length(drama)
-punctuation(drama)
-char_n_grams(drama, 3)
-char_n_grams(drama, 4)
-word_n_grams(drama, 1)
-word_n_grams(drama, 2)
-word_n_grams(drama, 3)
-function_word_frequency(drama, function_words)
+# path to function words file
+path_to_function_words = "function-words.txt"
+# path to folder with plays
+plays = list.files("plays/")
+# process all files in folder
+for (i in 1:length(plays)) {
+  # get drama name
+  drama_name = substr(plays[i], 0, 12)
+  # read lines of drama file and function words 
+  drama = readLines(gsub(" ", "", paste("plays/",plays[i])))
+  function_words = readLines(path_to_function_words)
+  # run functions
+  line_length(drama)
+  word_length(drama)
+  punctuation(drama)
+  char_n_grams(drama, 3)
+  char_n_grams(drama, 4)
+  word_n_grams(drama, 1)
+  word_n_grams(drama, 2)
+  word_n_grams(drama, 3)
+  function_word_frequency(drama, function_words)
+}
+
+
