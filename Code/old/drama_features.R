@@ -1,5 +1,6 @@
 # used libraries
 library(stylo)
+library(stringr)
 
 line_length = function(drama){
   # create counter for number of words and lines
