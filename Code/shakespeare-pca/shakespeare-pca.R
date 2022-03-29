@@ -221,9 +221,21 @@ final$myfactor <- factor(row.names(final))
 res.pca <- prcomp(final[1:30,1:609], scale = TRUE)
 # create plot
 fviz_pca_ind(res.pca,
-             geom = c("point", "text"),
+             show.clust.cent = FALSE,
              repel = TRUE,
              habillage=genres,
              addEllipses = TRUE,
-             title = "The Style of Shakespeare - Genre Analysis"
+             title = "The Style of Shakespeare - Genre Analysis - pca"
 )
+
+# run k means analysis
+final_k3 <- na.omit(final[1:30,1:609])
+final_k3 <- scale(final_k3)
+k3 <- kmeans(final_k3, centers = 3)
+# create plot
+fviz_cluster(k3, 
+             data = final_k3,
+             show.clust.cent = FALSE,
+             repel = TRUE,
+             title = "The Style of Shakespeare - Genre Analysis - k means")
+

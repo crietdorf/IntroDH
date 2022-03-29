@@ -23,7 +23,7 @@ Ford, John
 Glapthorne, Henry
 Greene, Robert
 Lyly, John
-**Marlowe, Christopher**
+Marlowe, Christopher
 Marston, John
 May, Thomas
 Peele, George
